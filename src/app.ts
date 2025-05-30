@@ -4,7 +4,9 @@ import { MemoryDB } from '@builderbot/bot'
 import { BaileysProvider } from '@builderbot/provider-baileys'
 import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants"
 import { typing } from "./utils/presence"
-
+const adapterProvider = new BaileysProvider({
+  version: [2, 3000, 1023223821],
+});
 /** Puerto en el que se ejecutará el servidor */
 const PORT = process.env.PORT ?? 3008
 /** ID del asistente de OpenAI */
