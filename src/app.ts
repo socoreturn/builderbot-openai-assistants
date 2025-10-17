@@ -6,7 +6,7 @@ import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants"
 import { typing } from "./utils/presence"
 const adapterProvider = createProvider(Provider, {
     version: [2, 3000, 1025190524] as any
-});
+})
 
 /** Puerto en el que se ejecutará el servidor */
 const PORT = process.env.PORT ?? 3008
