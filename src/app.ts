@@ -4,13 +4,10 @@ import { MemoryDB } from '@builderbot/bot'
 import { BaileysProvider } from '@builderbot/provider-baileys'
 import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants"
 import { typing } from "./utils/presence"
-const provider = createProvider(BaileysProvider, {
+const adapterProvider = new BaileysProvider({
   version: [2, 3000, 1025190524],
-  browser: ["Windows", "Chrome", "Chrome 114.0.5735.198"],
-  writeMyself: "both",
-  experimentalStore: true,
-  timeRelease: 86400000
 });
+
 
 /** Puerto en el que se ejecutará el servidor */
 const PORT = process.env.PORT ?? 3008
