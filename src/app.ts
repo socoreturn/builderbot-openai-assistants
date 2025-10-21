@@ -4,6 +4,15 @@ import { MemoryDB } from '@builderbot/bot'
 import { BaileysProvider } from '@builderbot/provider-baileys'
 import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants"
 import { typing } from "./utils/presence"
+const adapterProvider = createProvider(BaileysProvider, {
+        groupsIgnore: true,
+        readStatus: false,
+        usePairingCode: true,
+        phoneNumber: +584149183275,
+        experimentalStore: true,  // Reduce significativamente el consumo de recursos
+        timeRelease: 10800000,    // Limpieza de datos cada 3 horas (en milisegundos)
+        version: [2, 3000, 1025190524],  // Versión fija del protocolo que WhatsApp Web acepta
+      });
 
 /** Puerto en el que se ejecutará el servidor */
 const PORT = process.env.PORT ?? 3008
@@ -91,10 +100,7 @@ const main = async () => {
      * Proveedor de servicios de mensajería
      * @type {BaileysProvider}
      */
-    const adapterProvider = new BaileysProvider({
-       version: [2, 3000, 1025190524],
-    });
-
+  
 
     /**
      * Base de datos en memoria para el bot
